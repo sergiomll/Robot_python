@@ -61,7 +61,10 @@ datos_test = generador_test.flow_from_directory("Imagenes/images/test", class_mo
 # Esta red se basa en un componente llamado "bloque Inception":
 # encadena varios de estos bloques para extraer información de la imagen.
 
-inception = applications.InceptionV3(include_top=False, input_shape=(256, 256, 3))
+inception = applications.InceptionV3(include_top=False, input_shape=(256, 256, 3), weights="imagenet")
+inception.trainable = False
+# for i in inception.layers:
+#     i.trainable = False
 
 # Ajustes del modelo
 # En la siguiente celda añadimos a la red InceptionV3 un par de capas que nos permiten obtener
@@ -76,7 +79,12 @@ modelo = Sequential()
 modelo.add(inception)
 modelo.add(predictor)
 
+# modelo.add(Flatten())
+# modelo.add(Dense(128, activation="relu"))
+# modelo.add(Dense(2, activation="softmax"))
+
 modelo.compile(optimizer="adam", loss="categorical_crossentropy")
+modelo.summary()
 
 # Entrenamiento
 # Una vez creado el modelo que ya tiene la estructura final para responder preguntas de "sí/no",
