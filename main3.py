@@ -1,9 +1,9 @@
 import pyautogui
 
-size = pyautogui.size()
-print(size)
-pos = pyautogui.position()
-print(pos)
+# size = pyautogui.size()
+# print(size)
+# pos = pyautogui.position()
+# print(pos)
 
 # x = 100
 # y = 100
@@ -36,17 +36,27 @@ print(pos)
 # print(press)
 # user = pyautogui.prompt("Ingrese su nombre de usuario", "Iniciar sesión")
 # print(user)
-pas = pyautogui.password(text='', title='', default='', mask='*')
-print(pas)
+# pas = pyautogui.password(text='', title='', default='', mask='*')
+# print(pas)
 
 # im = pyautogui.screenshot()  # returns a Pillow/PIL Image object
 # im = pyautogui.screenshot(region=(0,0, 300, 400))
 # im.getpixel((100, 200))
+# px = pyautogui.pixel(100, 200)
+# print(px)
 # pyautogui.pixelMatchesColor(100, 200, (130, 135, 144), tolerance=10)
 # pyautogui.screenshot('foo.png')  # returns a Pillow/PIL Image object, and saves it to a file
 # pyautogui.locateOnScreen('looksLikeThis.png')  # returns (left, top, width, height) of first place it is found
 # pyautogui.locateCenterOnScreen('looksLikeThis.png')  # returns center x and y
 # button7location = pyautogui.locateOnScreen('calc7key.png', confidence=0.9)
+
+# im = pyautogui.screenshot("test.png", region=(478,30, 26,24))
+# loc = pyautogui.locateOnScreen("test.png", region=(450,0, 100, 100))
+loc = pyautogui.locateCenterOnScreen("test.png", region=(450,0, 100, 100))
+# loc = pyautogui.locateOnScreen("test.png", region=(450,0, 100, 100), confidence=0.9)
+# You need to have OpenCV installed for the confidence keyword to work.
+print(loc)
+
 
 
 
